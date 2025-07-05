@@ -377,7 +377,7 @@ public class StudentGrowthUI : MonoBehaviour
 
         if (completeData.Count == 0)
         {
-            monthlyStatsText.text = "아직 완료된 상담이 없어요. 더 참여해보세요!"
+            monthlyStatsText.text = "아직 완료된 상담이 없어요. 더 참여해보세요!";
             return;
         }
 
@@ -579,7 +579,7 @@ public class StudentGrowthUI : MonoBehaviour
             }
             else
             {
-                improvementText.text = "평균 성장도: 0.0 ➡️";
+                improvementText.text = "평균 성장도: 0.0 >";
                 improvementText.color = Color.gray;
             }
         }

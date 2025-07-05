@@ -23,6 +23,7 @@ public class TeacherInfo
     public string className;
     public string teacherName;
     public int studentCount;
+    public string classCode;
     
     public TeacherInfo()
     {
@@ -31,6 +32,7 @@ public class TeacherInfo
         className = "";
         teacherName = "";
         studentCount = 0;
+        classCode = "";
     }
 }
 

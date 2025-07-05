@@ -309,4 +309,23 @@ public static class ClassCodeManager
         
         return $"클래스 코드: {currentCode} ({data.schoolName} {data.grade} {data.className}, 학생 {data.students.Count}명)";
     }
+    
+    // 새 클래스 코드 생성 (기존 데이터 유지)
+    public static string GenerateNewClassCode()
+    {
+        var schoolData = StudentDataManager.LoadSchoolData();
+        if (schoolData?.teacherInfo == null)
+        {
+            Debug.LogError("교사 정보가 없습니다.");
+            return "";
+        }
+        
+        string className = schoolData.teacherInfo.className;
+        if (string.IsNullOrEmpty(className))
+        {
+            className = "Class";
+        }
+        
+        return GenerateClassCode(className);
+    }
 }

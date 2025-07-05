@@ -495,7 +495,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.9, y: 0.1}
   m_AnchorMax: {x: 0.9, y: 0.1}
-  m_AnchoredPosition: {x: 7.032013, y: -0.25402832}
+  m_AnchoredPosition: {x: 7.0319824, y: -0.25402832}
   m_SizeDelta: {x: 160.921, y: 53.186}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &348457585
@@ -1094,6 +1094,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &761413296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234567896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4053701d3378c134db472fff16116b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoFixOnStart: 1
+  usePrettyMode: 1
 --- !u!1 &768433145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,7 +1200,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\U0001F3C6 \uD68D\uB4DD\uD55C \uBC30\uC9C0"
+  m_text: "1st \uD68D\uB4DD\uD55C \uBC30\uC9C0"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a1c181500d46b6545a9d65c4d691765e, type: 2}
   m_sharedMaterial: {fileID: 6170705155434217224, guid: a1c181500d46b6545a9d65c4d691765e, type: 2}
@@ -1543,7 +1557,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\U0001F4CA \uC131\uC7A5 \uC694\uC57D"
+  m_text: "=-. \uC131\uC7A5 \uC694\uC57D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a1c181500d46b6545a9d65c4d691765e, type: 2}
   m_sharedMaterial: {fileID: 6170705155434217224, guid: a1c181500d46b6545a9d65c4d691765e, type: 2}
@@ -2015,6 +2029,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1234567895}
   - component: {fileID: 1234567897}
+  - component: {fileID: 761413296}
   m_Layer: 5
   m_Name: StudentGrowthManager
   m_TagString: Untagged
@@ -2981,7 +2996,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\U0001F4C8 \uAC10\uC815 \uBCC0\uD654 \uADF8\uB798\uD504"
+  m_text: "=-. \uAC10\uC815 \uBCC0\uD654 \uADF8\uB798\uD504"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a1c181500d46b6545a9d65c4d691765e, type: 2}
   m_sharedMaterial: {fileID: 6170705155434217224, guid: a1c181500d46b6545a9d65c4d691765e, type: 2}
@@ -3523,7 +3538,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\U0001F31F \uB098\uC758 \uC131\uC7A5 \uAE30\uB85D \U0001F31F"
+  m_text: "* \uB098\uC758 \uC131\uC7A5 \uAE30\uB85D *"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a1c181500d46b6545a9d65c4d691765e, type: 2}
   m_sharedMaterial: {fileID: 6170705155434217224, guid: a1c181500d46b6545a9d65c4d691765e, type: 2}
@@ -3926,7 +3941,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\uACC4\uC18D\uD574\uC11C \uC131\uC7A5\uD558\uACE0 \uC788\uC5B4\uC694!
-    \U0001F44F"
+    :)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a1c181500d46b6545a9d65c4d691765e, type: 2}
   m_sharedMaterial: {fileID: 6170705155434217224, guid: a1c181500d46b6545a9d65c4d691765e, type: 2}

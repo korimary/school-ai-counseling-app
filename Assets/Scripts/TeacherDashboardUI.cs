@@ -40,6 +40,11 @@ public class TeacherDashboardUI : MonoBehaviour
     [SerializeField] private Button studentListTabButton;
     [SerializeField] private Button settingsTabButton;
     [SerializeField] private Button backToMenuButton;
+    
+    [Header("팝업")]
+    [SerializeField] private StudentDetailPopup studentDetailPopup;
+    [SerializeField] private AddStudentPopup addStudentPopup;
+    [SerializeField] private GameObject errorPopupPrefab;
 
     [Header("색상 설정")]
     [SerializeField] private Color activeTabColor = new Color(0.2f, 0.7f, 1f);
@@ -191,17 +196,17 @@ public class TeacherDashboardUI : MonoBehaviour
         
         if (currentStats.overallImprovement > 0)
         {
-            improvementText = $"평균 개선도: +{currentStats.overallImprovement:F1} ⬆️";
+            improvementText = $"평균 개선도: +{currentStats.overallImprovement:F1} ^"; 
             improvementColor = positiveColor;
         }
         else if (currentStats.overallImprovement < 0)
         {
-            improvementText = $"평균 개선도: {currentStats.overallImprovement:F1} ⬇️";
+            improvementText = $"평균 개선도: {currentStats.overallImprovement:F1} v";
             improvementColor = negativeColor;
         }
         else
         {
-            improvementText = "평균 개선도: 변화없음 ➡️";
+            improvementText = "평균 개선도: 변화없음 >";
             improvementColor = neutralColor;
         }
         
@@ -223,7 +228,7 @@ public class TeacherDashboardUI : MonoBehaviour
         }
 
         // 감정별 통계 바 생성
-        int maxCount = currentStats.emotionCounts.Values.Max();
+        int maxCount = currentStats.emotionCounts.Count > 0 ? currentStats.emotionCounts.Values.Max() : 0;
         
         foreach (var emotionCount in currentStats.emotionCounts.OrderByDescending(x => x.Value))
         {
@@ -307,34 +312,14 @@ public class TeacherDashboardUI : MonoBehaviour
     
     private void ShowStudentDetails(int studentNumber)
     {
-        // 학생 상세 정보 표시
-        var studentInfo = GetStudentInfo(studentNumber);
-        if (studentInfo != null)
+        if (studentDetailPopup != null)
         {
-            // 임시로 디버그 로그로 표시, 나중에 UI 팝업으로 변경 가능
-            Debug.Log($"학생 {studentNumber}번 상세 정보:");
-            Debug.Log($"- 이름: {studentInfo.name}");
-            
-            // 감정 데이터에서 추가 정보 가져오기
-            var emotionHistory = GetStudentEmotionHistory(studentNumber);
-            if (emotionHistory != null && emotionHistory.Count > 0)
-            {
-                var lastEmotion = emotionHistory[emotionHistory.Count - 1];
-                Debug.Log($"- 최근 감정 상태: {lastEmotion.afterEmotion}");
-                Debug.Log($"- 상담 기록 수: {emotionHistory.Count}");
-            }
-            else
-            {
-                Debug.Log("- 최근 감정 상태: 기록 없음");
-                Debug.Log("- 상담 기록 수: 0");
-            }
-            
-            // 상세 정보 화면으로 이동하거나 팝업 표시
-            // SceneManager.LoadScene("StudentDetailScene");
+            studentDetailPopup.ShowStudentDetails(studentNumber);
         }
         else
         {
-            Debug.LogWarning($"학생 {studentNumber}번 정보를 찾을 수 없습니다.");
+            Debug.LogError("StudentDetailPopup이 할당되지 않았습니다.");
+            ShowError("학생 상세 정보를 표시할 수 없습니다.");
         }
     }
     
@@ -405,31 +390,21 @@ public class TeacherDashboardUI : MonoBehaviour
     
     private void ShowAddStudentPopup()
     {
-        // 학생 추가 팝업 구현
-        // 임시로 간단한 입력 다이얼로그 시뮬레이션
-        Debug.Log("학생 추가 팝업 표시됨");
-        
-        // 실제 구현 시에는 UI 팝업을 생성하거나 InputField 다이얼로그 표시
-        // 예: GameObject.Instantiate(addStudentPopupPrefab);
-        
-        // 임시 구현: 랜덤 학생 추가
-        AddNewStudent();
+        if (addStudentPopup != null)
+        {
+            addStudentPopup.ShowPopup(() =>
+            {
+                // 학생이 추가되면 데이터 새로고침
+                RefreshData();
+            });
+        }
+        else
+        {
+            Debug.LogError("AddStudentPopup이 할당되지 않았습니다.");
+            ShowError("학생 추가 팝업을 표시할 수 없습니다.");
+        }
     }
     
-    private void AddNewStudent()
-    {
-        // 새 학생 추가 로직
-        int newStudentNumber = UnityEngine.Random.Range(1000, 9999);
-        string newStudentName = $"학생{newStudentNumber}";
-        
-        Debug.Log($"새 학생 추가: {newStudentNumber}번 {newStudentName}");
-        
-        // 학생 데이터 저장 로직
-        // StudentDataManager.Instance.AddStudent(newStudentNumber, newStudentName);
-        
-        // UI 새로고침
-        LoadClassData();
-    }
 
     private void BackToMainMenu()
     {
@@ -439,16 +414,16 @@ public class TeacherDashboardUI : MonoBehaviour
     private void ShowError(string message)
     {
         Debug.LogError(message);
-        ShowErrorPopup(message);
-    }
-    
-    private void ShowErrorPopup(string errorMessage)
-    {
-        // 간소화된 에러 처리 - 안전한 Debug 로그 사용
-        Debug.LogError($"TeacherDashboard UI 오류: {errorMessage}");
         
-        // 추후 필요시 UI 팝업이나 다른 에러 표시 방법을 추가할 수 있음
-        // 예: GameObject.Instantiate(errorPopupPrefab);
+        if (PopupManager.Instance != null)
+        {
+            PopupManager.Instance.ShowError(message);
+        }
+        else
+        {
+            // PopupManager가 없는 경우 대체 방법
+            Debug.LogError($"PopupManager를 찾을 수 없습니다. 오류: {message}");
+        }
     }
 
     // 애니메이션 효과

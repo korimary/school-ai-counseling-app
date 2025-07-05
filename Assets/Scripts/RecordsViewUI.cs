@@ -190,7 +190,7 @@ public class RecordsViewUI : MonoBehaviour
             foreach (var record in sortedRecords)
             {
                 recordsContent += $"날짜: {record.timestamp}\n";
-                recordsContent += "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
+                recordsContent += "----------------------------\n";
                 recordsContent += $"{record.summary}\n";
                 recordsContent += "\n[원본 녹음 내용]\n";
                 recordsContent += $"{record.transcription}\n";

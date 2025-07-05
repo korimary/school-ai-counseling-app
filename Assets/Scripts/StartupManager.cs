@@ -5,6 +5,9 @@ public class StartupManager : MonoBehaviour
 {
     void Start()
     {
+        // 시스템 수정 매니저 전역 초기화
+        SystemFixManager.InitializeGlobally();
+        
         // 역할 선택이 안 되어 있으면 메인 메뉴로
         if (!UserManager.HasSelectedRole())
         {

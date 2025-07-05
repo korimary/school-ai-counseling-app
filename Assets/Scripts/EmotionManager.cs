@@ -510,6 +510,58 @@ public class EmotionManager : MonoBehaviour
         }
         return false;
     }
+    
+    /// <summary>
+    /// Get emotion data for specific student (overload for string studentNumber)
+    /// </summary>
+    public List<EmotionData> GetStudentEmotionData(string studentNumber)
+    {
+        List<EmotionData> studentData = new List<EmotionData>();
+        
+        foreach (var data in emotionDataHistory)
+        {
+            if (data.studentNumber == studentNumber)
+            {
+                studentData.Add(data);
+            }
+        }
+        
+        return studentData;
+    }
+    
+    /// <summary>
+    /// Get pending submission count
+    /// </summary>
+    public int GetPendingSubmissionCount()
+    {
+        return pendingSubmissions.Count;
+    }
+    
+    /// <summary>
+    /// Clear all local data
+    /// </summary>
+    public void ClearAllLocalData()
+    {
+        emotionDataHistory.Clear();
+        pendingSubmissions.Clear();
+        currentEmotionData = new EmotionData();
+        
+        // Delete local files
+        try
+        {
+            string fullPath = Path.Combine(Application.persistentDataPath, localStoragePath);
+            if (Directory.Exists(fullPath))
+            {
+                Directory.Delete(fullPath, true);
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Error clearing local data files: {e.Message}");
+        }
+        
+        Debug.Log("All local emotion data cleared");
+    }
 }
 
 /// <summary>

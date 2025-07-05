@@ -235,6 +235,29 @@ public class GoogleSheetsManager : MonoBehaviour
     }
     
     /// <summary>
+    /// Set Google Form configuration with simple parameters
+    /// </summary>
+    public void SetGoogleFormConfig(string formURL, string entryBefore, string entryAfter, string entryKeywords)
+    {
+        googleFormURL = formURL;
+        ENTRY_BEFORE_EMOTION = entryBefore;
+        ENTRY_AFTER_EMOTION = entryAfter;
+        ENTRY_KEYWORDS = entryKeywords;
+        
+        // Set default entry IDs if not provided
+        if (string.IsNullOrEmpty(ENTRY_TIMESTAMP))
+            ENTRY_TIMESTAMP = "entry.123456789"; // Default timestamp entry
+        if (string.IsNullOrEmpty(ENTRY_CLASS_CODE))
+            ENTRY_CLASS_CODE = "entry.987654321"; // Default class code entry
+        if (string.IsNullOrEmpty(ENTRY_STUDENT_NUMBER))
+            ENTRY_STUDENT_NUMBER = "entry.456789123"; // Default student number entry
+        if (string.IsNullOrEmpty(ENTRY_EMOTION_INTENSITY))
+            ENTRY_EMOTION_INTENSITY = "entry.789123456"; // Default intensity entry
+            
+        Debug.Log($"Google Form config updated: URL={formURL}");
+    }
+    
+    /// <summary>
     /// Google Forms 설정 상태 확인
     /// </summary>
     public bool IsConfigured()

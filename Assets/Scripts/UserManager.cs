@@ -170,4 +170,24 @@ public static class UserManager
             return "모드 선택 안됨";
         }
     }
+    
+    // 교사 모드로 설정 (편의 메소드)
+    public static void SetTeacherMode(bool isTeacher = true)
+    {
+        if (isTeacher)
+        {
+            SetUserMode(UserMode.Teacher);
+        }
+        else
+        {
+            SetUserMode(UserMode.None);
+        }
+    }
+    
+    // 학생 모드로 설정 (편의 메소드)
+    public static void SetStudentMode(int studentId, string studentName)
+    {
+        SetUserMode(UserMode.Student);
+        SetStudentInfo(studentId, studentName);
+    }
 }
