@@ -1,0 +1,66 @@
+# Unity 폴더들
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# 메모리 관련
+[Mm]emoryCaptures/
+
+# 에셋 메타 파일
+!/[Aa]ssets/**/*.meta
+
+# Unity 패키지 관리자 임시 파일
+/[Aa]ssets/ExternalDependencyManager/Editor/
+
+# Visual Studio 캐시 파일
+.vs/
+
+# Gradle 캐시 파일
+.gradle/
+
+# 자동 생성 파일들
+ExportedObj/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity3D 생성 메타 파일
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Unity3D 크래시 리포트
+sysinfo.txt
+
+# 빌드 파일
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# 크래시 로그
+crashlytics-build.properties
+
+# 맥 OS 파일
+.DS_Store
+
+# OpenAI API 키 (보안상 중요!)
+*apikey*
+*api_key*
+*API_KEY*

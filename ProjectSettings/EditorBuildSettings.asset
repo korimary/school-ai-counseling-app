@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenuScene.unity
+    guid: c3d4e5f67890123456789012345678901
+  - enabled: 1
+    path: Assets/Scenes/StartupScene.unity
+    guid: 71fd50c6a87293e43bad0e8e3b911f8f
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/InitialSetupScene.unity
+    guid: 67057847fa2dcd44691d91e130f53951
+  - enabled: 1
+    path: Assets/Scenes/RecordsViewScene.unity
+    guid: 9db4cf1bf571f11418775815cf0efe2f
+  - enabled: 1
+    path: Assets/Scenes/StudentLoginScene.unity
+    guid: 1234567890abcdef1234567890abcdef
+  - enabled: 1
+    path: Assets/Scenes/StudentGrowthScene.unity
+    guid: abcdef1234567890abcdef1234567890
+  - enabled: 1
+    path: Assets/Scenes/TeacherDashboardScene.unity
+    guid: 1111222233334444555566667777888899
+  - enabled: 1
+    path: Assets/Scenes/StudentEmotionScene.unity
+    guid: 3fd276cd77a2ea24d9d490e91622034b
+  m_configObjects: {}
