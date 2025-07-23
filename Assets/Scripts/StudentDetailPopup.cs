@@ -150,6 +150,9 @@ public class StudentDetailPopup : MonoBehaviour
     
     private void UpdateEmotionHistory()
     {
+        // 감정 히스토리 기능 제거됨
+        return;
+        /*
         // 기존 아이템 제거
         foreach (Transform child in emotionHistoryContainer)
         {
@@ -186,10 +189,14 @@ public class StudentDetailPopup : MonoBehaviour
                 }
             }
         }
+        */
     }
     
     private void CreateHistoryItem(EmotionData emotion)
     {
+        // 감정 히스토리 기능 제거됨
+        return;
+        /*
         if (emotionHistoryItemPrefab == null) return;
         
         GameObject item = Instantiate(emotionHistoryItemPrefab, emotionHistoryContainer);
@@ -238,6 +245,7 @@ public class StudentDetailPopup : MonoBehaviour
             improvementText.color = change > 0 ? positiveColor : 
                                   change < 0 ? negativeColor : neutralColor;
         }
+        */
     }
     
     private void UpdateEmotionChart()

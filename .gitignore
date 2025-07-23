@@ -64,3 +64,16 @@ crashlytics-build.properties
 *apikey*
 *api_key*
 *API_KEY*
+
+# Firebase 대용량 파일들
+Assets/Firebase/Plugins/x86_64/FirebaseCppApp-12_10_1.bundle
+Assets/Firebase/Plugins/x86_64/FirebaseCppApp-12_10_1.so
+Assets/Firebase/Plugins/x86_64/FirebaseCppAuth-12_10_1.bundle
+
+# 보안 파일 (절대 커밋하지 말 것!)
+**/google-services.json
+Assets/StreamingAssets/school-ai-counseling-app-*.json
+Assets/StreamingAssets/*.json
+google-services.json
+Assets/google-services.json
+Assets/google-services.json.meta
